@@ -55,22 +55,22 @@ std::string createGUID32()
 	return str;
 }
 
-static const char base16mask[] = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, \
-				- 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, \
-				- 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, \
-				0,  1,  2,  3,  4,  5,  6,  7,  8,  9, -1, -1, -1, -1, -1, -1, \
-				- 1, 10, 11, 12, 13, 14, 15, -1, -1, -1, -1, -1, -1, -1, -1, -1, \
-				- 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, \
-				- 1, 10, 11, 12, 13, 14, 15, -1, -1, -1, -1, -1, -1, -1, -1, -1, \
-				- 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
-static const char base64mask[] = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, \
-				- 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, \
-				- 1, -1, -1, -1, 63, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, \
-				0,  1,  2,  3,  4,  5,  6,  7,  8,  9, -1, -1, -1, -1, -1, -1, \
-				- 1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, \
-				25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, 62, \
-				- 1, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, \
-				51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1 };
+static const char base16mask[] = { char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(0), char(1), char(2), char(3), char(4), char(5), char(6), char(7), char(8), char(9), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(-1), char(10), char(11), char(12), char(13), char(14), char(15), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(-1), char(10), char(11), char(12), char(13), char(14), char(15), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1) };
+static const char base64mask[] = { char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(-1), char(-1), char(-1), char(-1), char(63), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(0), char(1), char(2), char(3), char(4), char(5), char(6), char(7), char(8), char(9), char(-1), char(-1), char(-1), char(-1), char(-1), char(-1), \
+				 char(-1), char(10), char(11), char(12), char(13), char(14), char(15), char(16), char(17), char(18), char(19), char(20), char(21), char(22), char(23), char(24), \
+				 char(25), char(26), char(27), char(28), char(29), char(30), char(31), char(32), char(33), char(34), char(35), char(-1), char(-1), char(-1), char(-1), char(62), \
+				 char(-1), char(36), char(37), char(38), char(39), char(40), char(41), char(42), char(43), char(44), char(45), char(46), char(47), char(48), char(49), char(50), \
+				 char(51), char(52), char(53), char(54), char(55), char(56), char(57), char(58), char(59), char(60), char(61), char(-1), char(-1), char(-1), char(-1), char(-1) };
 
 
 ///@brief Compresses a GUID string
